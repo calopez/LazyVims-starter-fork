@@ -1,0 +1,109 @@
+return {
+  -- Enhanced conform.nvim configuration with RuboCop auto-correction
+  -- {
+  --   "stevearc/conform.nvim",
+  --   opts = {
+  --     formatters = {
+  --       rubocop = {
+  --         -- Auto-correct all fixable offenses including unsafe ones
+  --         args = {
+  --           "--auto-correct",
+  --           "--format",
+  --           "quiet",
+  --           "--stderr",
+  --           "--stdin",
+  --           "$FILENAME",
+  --         },
+  --       },
+  --     },
+  --     formatters_by_ft = {
+  --       ruby = { "rubocop" },
+  --     },
+  --     -- Auto-format on save (optional - remove if you prefer manual formatting)
+  --     format_on_save = {
+  --       timeout_ms = 1000,
+  --       lsp_fallback = true,
+  --     },
+  --   },
+  -- },
+
+  -- Custom keymaps for RuboCop (extends LazyVim defaults)
+  -- {
+  --   "LazyVim/LazyVim",
+  --   keys = {
+  --     -- Auto-correct current file
+  --     {
+  --       "<leader>cR",
+  --       function()
+  --         local filename = vim.fn.expand("%")
+  --         vim.cmd("silent !rubocop --auto-correct" .. filename)
+  --         vim.cmd("silent edit!") -- Reload the file to show changes
+  --         vim.notify("RuboCop auto-corrections applied", vim.log.levels.INFO)
+  --       end,
+  --       desc = "RuboCop auto-correct current file",
+  --       ft = "ruby",
+  --     },
+  --
+  --     -- Auto-correct all Ruby files in project
+  --     {
+  --       "<leader>cA",
+  --       function()
+  --         vim.cmd("!rubocop --auto-correct")
+  --       end,
+  --       desc = "RuboCop auto-correct all files",
+  --       ft = "ruby",
+  --     },
+  --
+  --     -- Show RuboCop status for current file
+  --     -- {
+  --     --   "<leader>cS",
+  --     --   function()
+  --     --     vim.cmd("!rubocop " .. vim.fn.expand("%"))
+  --     --   end,
+  --     --   desc = "Show RuboCop status",
+  --     --   ft = "ruby",
+  --     -- },
+  --   },
+  -- },
+
+  -- Ensure Mason installs Ruby tools
+  -- {
+  --   "williamboman/mason.nvim",
+  --   opts = function(_, opts)
+  --     opts.ensure_installed = opts.ensure_installed or {}
+  --     vim.list_extend(opts.ensure_installed, {
+  --       "ruby-lsp",
+  --       "rubocop",
+  --     })
+  --   end,
+  -- },
+
+  -- Enhance nvim-lint for Ruby (optional)
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   optional = true,
+  --   opts = {
+  --     linters_by_ft = {
+  --       ruby = { "rubocop" },
+  --     },
+  --     -- Auto-lint on save and text changes
+  --     events = { "BufWritePost", "BufReadPost", "InsertLeave" },
+  --   },
+  -- },
+
+  -- Add Ruby support for trouble.nvim diagnostics
+  -- {
+  --   "folke/trouble.nvim",
+  --   optional = true,
+  --   keys = {
+  --     {
+  --       "<leader>xR",
+  --       function()
+  --         require("trouble").toggle("workspace_diagnostics")
+  --       end,
+  --       desc = "Workspace Diagnostics (Trouble) - includes RuboCop",
+  --       ft = "ruby",
+  --     },
+  --   },
+  -- },
+}

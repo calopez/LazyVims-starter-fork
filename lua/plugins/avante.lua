@@ -14,7 +14,6 @@ return {
         -- temperature = 0.7, -- Set the creativity level of responses (0-1)
       },
       gemini = {
-        -- api_key = "AIzaSyB6oOMux9NM1D324HU9Ls205wS548kZvo0",
         endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
         model = "gemini-1.5-flash-latest",
         timeout = 30000, -- Timeout in milliseconds
